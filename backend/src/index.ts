@@ -1,12 +1,16 @@
-import express, { application, Request, Response } from "express";
+import express, { Request, Response } from "express";
 import { fetchAvailableCountries } from "./services/countriesService";
 import * as dotenv from "dotenv";
 import { fetchBorderCountries, fetchCountryFlag, fetchPopulationData } from "./services/countryInfoService";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(cors({
+    origin: "http://localhost:3000"
+}));
 app.use(express.json());
 
 app.get("/api/getAvailableCountries", async (req: Request, res: Response) => {
