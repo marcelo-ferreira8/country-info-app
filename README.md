@@ -1,5 +1,5 @@
 # Full Stack Country Information Application
-This is a study project developed with Next.js (for the frontend), Express (for the backend), and TypeScript. The application allows users to view country information such as population and neighboring countries, using external APIs.
+This is a development challenge from DevelopsToday developed with Next.js (for the frontend), Express (for the backend), and TypeScript. The application allows users to view country information such as population and neighboring countries, using external APIs.
 
 Features
 List Available Countries: Endpoint to list available countries.
@@ -9,27 +9,22 @@ Node.js (v18 or higher)
 npm or yarn
 ## Installation
 1. Clone the Repository
-Start by cloning the repository to your local machine:
-git clone https://github.com/marcelo-ferreira8/country-info-app.git
-cd country-info-app
+- git clone https://github.com/marcelo-ferreira8/country-info-app.git
+- cd country-info-app
 2. Install Backend Dependencies
-Navigate to the backend folder and install the necessary dependencies:
-cd backend
-npm install
+- cd backend
+- npm install
 3. Install Frontend Dependencies
-Navigate to the frontend folder and install the necessary dependencies:
-cd frontend
-npm install
+- cd frontend
+- npm install
 
 4. Environment Variables
 Create a .env file in the backend directory for storing your environment variables, like so:
+- Check .env.example
+- PORT=
+- NAGER_API_URL=
+- COUNTRIES_NOW_API_URL=
 
-For Backend:
-PORT=
-NAGER_API_URL=
-COUNTRIES_NOW_API_URL=
-
-Check .env.example
 
 
 5. Run Backend Server
