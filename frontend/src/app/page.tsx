@@ -32,7 +32,7 @@ export default function CountriesPage() {
 
   return (
     <div>
-      <h1>Países Disponíveis</h1>
+      <h1>Available Countries</h1>
       <ul>
         {countries.map((country) => (
           <li key={country.countryCode}>
