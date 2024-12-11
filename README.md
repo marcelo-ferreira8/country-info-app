@@ -8,33 +8,42 @@ Prerequisites
 Node.js (v18 or higher)
 npm or yarn
 ## Installation
-1. Clone the Repository
-- git clone https://github.com/marcelo-ferreira8/country-info-app.git
-- cd country-info-app
+1. Clone the Repository and change directory
+```
+git clone https://github.com/marcelo-ferreira8/country-info-app.git
+cd country-info-app
+```
 2. Install Backend Dependencies
-- cd backend
-- npm install
+```
+cd backend
+npm install
+```
 3. Install Frontend Dependencies
-- cd frontend
-- npm install
+```
+cd frontend
+npm install
+```
 
 4. Environment Variables
 Create a .env file in the backend directory for storing your environment variables, like so:
-- Check .env.example
-- PORT=
-- NAGER_API_URL=
-- COUNTRIES_NOW_API_URL=
-
+```
+PORT=
+NAGER_API_URL=
+COUNTRIES_NOW_API_URL=
+```
+- Check .env.example in case of doubts.
 
 
 5. Run Backend Server
-From the backend directory, run the backend server using the following command:
+```
 npm run dev
-The backend will be available at http://localhost:PORT.
+```
+The backend will be available at http://localhost:3001.
 
 6. Run Frontend Server
-From the frontend directory, start the Next.js development server:
+```
 npm run dev
+```
 The frontend will be available at http://localhost:3000.
 
 7. Verify the Application
@@ -49,7 +58,7 @@ Description: Returns a list of available countries.
 Endpoint: GET /api/getCountryInfo/:code
 Description: Fetches detailed information about a specific country, including borders, population, and flag.
 
-### Troubleshooting
+## Troubleshooting
 CORS Issues: Make sure the backend has CORS enabled, especially if the frontend and backend are on different ports.
 Install cors in the backend:
 npm install cors
