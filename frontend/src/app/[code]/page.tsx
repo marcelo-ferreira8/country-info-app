@@ -1,4 +1,5 @@
 import api from "@/services/api";
+import Link from "next/link";
 
 interface Props {
   params: { code: string };
@@ -8,7 +9,7 @@ interface Props {
 interface CountryInfo {
   countryCode: string;
   countryName: string;
-  borderCountries: string[];
+  borderCountries: { commonName: string, countryCode: string }[];
   populationData: { year: string; value: number }[];
   flagUrl: string;
 }
@@ -18,7 +19,7 @@ export default async function CountryInfoPage({ params, searchParams }: Props) {
   const countryName = searchParams.countryName;
 
   if (!countryName) {
-    return <p>É necessário fornecer o parâmetro 'name'.</p>;
+    return <p>It's necessary to inform the param 'countryName'.</p>;
   }
 
   try {
@@ -27,15 +28,24 @@ export default async function CountryInfoPage({ params, searchParams }: Props) {
 
     return (
       <div>
-        <h1>Informações sobre {countryInfo.countryName}</h1>
+        <h1>Information about {countryInfo.countryName}</h1>
         <p>
-          <strong>Código:</strong> {countryInfo.countryCode}
+          <strong>Code:</strong> {countryInfo.countryCode}
         </p>
         <p>
-          <strong>Países Vizinhos:</strong> {countryInfo.borderCountries.join(", ")}
+          <strong>Border Countries:</strong> 
         </p>
+        <ul>
+          {countryInfo.borderCountries.map((data) => (
+            <li key={data.commonName}>
+              <Link href={`/${data.countryCode}?countryName=${data.commonName}`}>
+                {data?.commonName} 
+              </Link>
+            </li>
+          ))}
+        </ul>
         <p>
-          <strong>População ao longo do tempo:</strong>
+          <strong>Population over time:</strong>
         </p>
         <ul>
           {countryInfo.populationData.map((data) => (
@@ -46,7 +56,7 @@ export default async function CountryInfoPage({ params, searchParams }: Props) {
         </ul>
         <img
           src={countryInfo.flagUrl}
-          alt={`Bandeira de ${countryInfo.countryName}`}
+          alt={`Flag of ${countryInfo.countryName}`}
           width="200"
         />
       </div>
