@@ -21,8 +21,9 @@ npm install
 3. Install Frontend Dependencies
 ```
 cd frontend
-npm install
+npm install --legacy-peer-deps
 ```
+- Used '--legacy-peer-deps' beacuse next.js 15 has a few problems with Chart.js
 
 4. Environment Variables
 Create a .env file in the backend directory for storing your environment variables, like so:
